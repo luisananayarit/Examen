@@ -70,6 +70,7 @@ while True:
     print("2. Búsqueda por RAM y precio.")
     print("3. Eliminar producto.")
     print("4. Salir.")
+    print("holiii")
     opcion = input("Ingrese opcion: ")
 
     if opcion == "1":
