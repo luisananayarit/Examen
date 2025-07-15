@@ -14,16 +14,22 @@ stock = {'8475HD': [387990,10], '2175HD': [327990,4], 'JjfFHD': [424990,1],
                  }
 
 #funcion
-marca = ['HP','Acer','Asus','Dell']
+
+marca=[]
 def stock(marca):
-    marca = input("Ingrese marca a consultar: ").strip().capitalize()
-    for marca in productos:
-        if marca == marca:   
-            print(f"El stock es de: {stock}")
-            break
-        elif marca != marca:
-            print("producto no encontrado")
-            break
+    marca = input("Ingrese marca a consultar: ").strip()
+    hay_resultados = 0
+
+    for codigo in productos:
+        if productos[codigo][0] == marca:
+            if codigo in stock:
+                precio = stock[codigo][0]
+                cantidad = stock[codigo][1]
+                print(f"Producto: {codigo} | Precio: {precio} | Stock: {cantidad}")
+                hay_resultados += 1
+
+    if hay_resultados == 0:
+        print("No se encontraron productos para esa marca.")
 
 ram_min = []
 ram_max = []
@@ -47,7 +53,7 @@ def busqueda_ram_precio(ram_min, ram_max):
         print("Debe ingresar valores enteros!!")
         return   
 
-modelo = []
+modelo=[]
 def eliminar_producto(modelo):
     while True:    
         modelo = input("Ingrese el modelo a eliminar: ")
@@ -70,7 +76,6 @@ while True:
     print("2. Búsqueda por RAM y precio.")
     print("3. Eliminar producto.")
     print("4. Salir.")
-    print("holiii")
     opcion = input("Ingrese opcion: ")
 
     if opcion == "1":
